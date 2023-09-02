@@ -2,108 +2,35 @@
   --font-primary: "Inter", sans-serif;
   --color-white: hsl(75, 6%, 100%);
   --color-black: hsl(75, 6%, 10%);
-  --color-primary: hsl(219, 37%, 17%);
-  --color-emphasis: hsl(37, 89%, 67%);
-  --section-padding: 40px 32px;
-  --inner-margin: 80px 0;
+  --color-primary: hsl(195, 83%, 16%);
+  --color-emphasis: hsl(42, 100%, 70%);
+  --font-size--xs: 0.8rem;
+  --font-size--s: 1rem;
+  --font-size--m: 1.5rem;
+  --font-size--l: 2rem;
+  --font-size--xl: 2.5rem;
+  --font-size--xxl: 3rem;
+  --section-padding: var(--spacing-m);
+  --spacing-xs: 4px;
+  --spacing-s: 16px;
+  --spacing-m: 32px;
+  --spacing-l: 64px;
+  --spacing-xl: 80px;
+  --spacing-xxl: 160px;
+  font-size: 20px;
 }
 
 body {
   margin: 0;
+  box-sizing: border-box;
   font-family: var(--font-primary);
-  color: var(--color-black);
+  font-size: var(--font-size--s);
+  color: var(--color-white);
   text-align: center;
 }
 
 .underline {
-    border-bottom: 4px solid var(--color-emphasis);
-}
-
-.hero-container {
-  position: relative;
-  padding: 146px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url("images/jefferson-city.jpg");
-  background-position: cover;
-  background-position: center;
-  color: var(--color-white);
-}
-
-.hero-filter {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: var(--color-black);
-  opacity: 0.6;
-}
-
-.hero-content {
-  display: flex;
-  flex-flow: column;
-  gap: 24px;
-  z-index: 1;
-}
-
-.hero-h1,
-.hero-h2 {
-  margin: 0;
-}
-
-.hero-h1 {
-  font-size: 56px;
-  font-weight: 800;
-}
-
-.hero-h2 {
-  font-size: 32px;
-  font-weight: 300;
-  max-width: 700px;
-}
-
-.activities-container {
-  padding: var(--section-padding);
-  background: var(--color-primary);
-  color: var(--color-white);
-}
-
-.activities-h3,
-.guide-h3 {
-  font-size: 24px;
-}
-
-.activities-cards {
-  margin: var(--inner-margin);
-  display: flex;
-  justify-content: center;
-  gap: 200px;
-}
-
-.activities-card {
-  max-width: 300px;
-}
-
-.activities-h4 {
-  font-size: 16px;
-  font-weight: 800;
-}
-
-.guide-container {
-  padding: var(--section-padding);
-}
-
-.guide-content {
-  margin: var(--inner-margin);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
-}
-
-.guide-text {
-    text-align: left;
-    max-width: 400px;
+  border-bottom: 6px solid var(--color-emphasis);
 }
 
 img {
@@ -111,4 +38,155 @@ img {
   height: 200px;
   object-fit: cover;
   border-radius: 50%;
+  transition: all 0.2s ease-in;
+  border: 6px solid transparent;
+}
+
+a {
+  color: var(--color-black);
+  text-decoration: none;
+  display: block;
+  padding: var(--spacing-xs);
+}
+
+a:hover {
+  background: var(--color-emphasis);
+  border-radius: var(--spacing-xs);
+}
+
+h1,
+h2,
+h3 {
+  margin: var(--spacing-s) 0;
+}
+
+.hero-container {
+  position: relative;
+  padding: var(--spacing-xxl) var(--spacing-m);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("images/jefferson-city.jpg");
+  background-position: cover;
+  background-position: 0 center;
+}
+
+.gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-black),
+    0%,
+    var(--color-black),
+    90%,
+    transparent
+  );
+  opacity: 1;
+}
+
+.hero-content {
+  display: flex;
+  flex-flow: column;
+  gap: var(--spacing-xs);
+  z-index: 99;
+}
+
+.hero-h1 {
+  font-size: var(--font-size--xl);
+  font-weight: 800;
+}
+
+.hero-h2 {
+  font-size: var(--font-size--l);
+  font-weight: 300;
+}
+
+.activities-container,
+.guide-container {
+  padding: var(--section-padding);
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+
+.activities-h3,
+.guide-h3 {
+  font-size: var(--font-size--m);
+}
+
+.activities-h4 {
+  margin: var(--spacing-m) 0 0 0;
+  font-size: var(--font-size--s);
+  font-weight: 800;
+}
+
+.activities-p {
+  margin: var(--spacing-s) 0;
+}
+
+.activities-container {
+  padding: var(--spacing-l);
+  background: var(--color-white);
+  color: var(--color-black);
+}
+
+.activities-cards {
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1600px;
+}
+
+.activities-cards,
+.guide-content {
+  display: flex;
+  gap: var(--spacing-l);
+  margin: var(--spacing-l);
+}
+
+.activities-card {
+  width: 400px;
+}
+
+.guide-container {
+  position: relative;
+  background-image: url("images/guide.jpg");
+  background-size: cover;
+  background-position: 100% 0;
+}
+
+.guide-content,
+.guide-h3 {
+  z-index: 99;
+}
+
+.guide-content {
+  justify-content: center;
+  align-items: center;
+}
+
+.guide-text {
+  text-align: left;
+  max-width: 600px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .hero-container {
+    padding: var(--spacing-l) var(--spacing-m);
+    background-position: 0 80%;
+  }
+  .activities-cards,
+  .guide-content {
+    flex-flow: column;
+    align-items: center;
+  }
+  .activities-card {
+    width: 100%;
+  }
+  :root {
+    font-size: 18px;
+  }
 }
